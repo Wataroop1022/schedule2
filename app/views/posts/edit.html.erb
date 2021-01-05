@@ -1,0 +1,38 @@
+<h2>スケジュール編集</h2>
+<%= render "layouts/flash" %>
+
+<%= form_with model: @post, local: true do |f| %>
+<%= render "layouts/error", obj: @post %>
+<table>
+  <thead>
+    <tr>
+      <th><%= f.label "タイトル"%></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "開始日"%></th>
+      <td><%= f.date_field :day_start%></td>
+    </tr>
+    <tr>
+      <th><%= f.label "終了日"%></th>
+      <td><%= f.date_field :day_end%></td>
+    </tr>
+    <tr>
+      <th>  <%= f.label "終日" %></th>
+      <td><%= f.check_box :all_day %> 終日の場合はチェックを入れます</td>
+    </tr>
+    <tr>
+      <th>  <%= f.label "スケジュールメモ" %></th>
+      <td><%= f.text_area :memo, class: "memo_content" %></td>
+    </tr>
+  </thead>
+</table>
+
+<div class="">
+  <ul>
+    <li><%= f.submit "スケジュールの編集を完了する" %></li>
+    <li><%= link_to("スケジュール一覧に戻る", posts_path)%></li>
+  </ul>
+
+</div>
+<% end %>

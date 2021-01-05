@@ -1,0 +1,34 @@
+<h2>スケジュール詳細</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <td><%= @post.title %></td>
+    </tr>
+    <tr>
+      <th>開始日</th>
+      <td><%= @post.day_start %></td>
+    </tr>
+    <tr>
+      <th>終了日</th>
+      <td><%= @post.day_end %></td>
+    </tr>
+    <tr>
+      <th>終日</th>
+      <td><%= @post.all_day %></td>
+    </tr>
+    <tr>
+      <th>スケジュールメモ</th>
+      <td><%= @post.memo %></td>
+    </tr>
+  </thead>
+</table>
+
+<div class="">
+  <ul>
+    <li><%= link_to "スケジュール一覧に戻る", posts_path %></li>
+    <li><%= link_to "スケジュールを編集する", edit_post_path(@post) %></li>
+    <li><%= link_to"スケジュールを削除", post_path(@post), :method => :delete %></li>
+  </ul>
+</div>

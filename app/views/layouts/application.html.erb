@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Schedule3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1>Ruby on rails スケジュール管理アプリ</h1>
+    </header>
+
+    <div class="wrapper">
+      <div class="main-container">
+        <%= yield %>
+      </div>
+
+      <footer>
+        <h1>
+          <script type="text/javascript">
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth()+1;
+            var day = today.getDate();
+            document.write("現在の日時："+year+"年"+month+"月"+day+"日")
+          </script>
+          <%= yield :amount %>
+        </h1>
+      </footer>
+    </div>
+  </body>
+</html>

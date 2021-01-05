@@ -1,0 +1,52 @@
+
+<div class="information">
+  <h2>スケジュール一覧</h2>
+    <%= render "layouts/flash" %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>スケジュール更新日時</th>
+      <th>確認</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post|%>
+    <tr>
+      <td><%= post.id%></td>
+      <td><%= post.title%></td>
+      <td><%= post.day_start%></td>
+      <td><%= post.day_end%></td>
+      <td>
+        <% if post.all_day %>
+          ○
+        <% end %>
+      </td>
+      <td><%= post.updated_at%></td>
+      <td><%= link_to "確認", post %></td>
+      <td><%= link_to "編集", [:edit, post] %></td>
+      <td><%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<div class="c">
+  <%= link_to "スケジュールを新規登録", :new_post %>
+</div>
+
+<% content_for :amount do %>
+  スケジュール合計：<%= @post_count%>
+<% end %>
